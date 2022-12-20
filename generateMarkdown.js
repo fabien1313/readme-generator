@@ -3,10 +3,15 @@
 function renderLicenseBadge(license) {
   let licenseBadge = '';
   if (license === 'MIT') {
-    licenseBadge = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)(https://opensource.org/licenses/MIT)'
+    licenseBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+  } else if (license === 'Apache 2.0') {
+    licenseBadge = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+  } else if (license === 'PDDL') {
+    licenseBadge = '[![License: ODbL](https://img.shields.io/badge/License-PDDL-brightgreen.svg)](https://opendatacommons.org/licenses/pddl/)'
+  } else {
+    licenseBadge = '';
   }
-
-
+  return licenseBadge;
 }
 
 // TODO: Create a function that returns the license link
@@ -18,46 +23,47 @@ function renderLicenseLink(license) {}
 function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
-function turd(data) {
-  return `# ${data.title}
-  ${renderLicenseBadge(data.license)}
+const turd = ({ title, description, license, installation, usage, technologies1, technologies2, technologies3, contributing, tests, questions}) =>
+  `# ${title}
+  ${renderLicenseBadge(license)}
 
   ## Description
-  ${data.description}
+  ${description}
 
   ##Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
   - [Technologies](#technologies)
-  - [Credits](#credits)
+  - [Contributing](#contributing)
   - [Tests](#tests)
   - [Questions](#questions)
   - [License](#license)
 
   ## Installation
-  ${data.installation}
+  ${installation}
 
   ## Usage
-  ${data.usage}
+  ${usage}
 
   ## Technologies
- - ${data.technologies1}
- - ${data.technologies2}
- - ${data.technologies3}
+ - ${technologies1}
+ - ${technologies2}
+ - ${technologies3}
 
- ## Credits
- ${data.contributing}
+ ## Contributing
+ ${contributing}
 
  ## Tests
- ${data.tests}
+ ${tests}
 
  ## Questions
- ${data.questions}
+ If you have questions, comments, or concerns please reach me at https://github.com/${questions}
 
  ## License
- ${data.license}
+ **License:** ${license}
+ 
 
 `;
-}
+
 
 module.exports = turd;

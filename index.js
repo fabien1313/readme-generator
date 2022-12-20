@@ -65,7 +65,7 @@ const questions = [
             if(value) {
                 return true
             }else {
-                return 'Please provide usage information!'
+                return 'Must pick a license'
             }
         },
 
