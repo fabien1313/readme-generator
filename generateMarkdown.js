@@ -35,13 +35,15 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
-const turd = ({ title, description, license, installation, usage, technologies1, technologies2, technologies3, contributing, tests, questions}) =>
+const renderReadMe = ({ title, description, license, installation, usage, technologies1, technologies2, technologies3, contributing, tests, questions, email}) =>
   `# ${title}
   ${renderLicenseBadge(license)}
   <hr>
+
   ## Description
   ${description}
   <hr>
+
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
@@ -51,26 +53,35 @@ const turd = ({ title, description, license, installation, usage, technologies1,
   - [Questions](#questions)
   - [License](#license)
   <hr>
+
   ## Installation
   ${installation}
   <hr>
+
   ## Usage
   ${usage}
   <hr>
+
   ## Technologies
  - ${technologies1}
  - ${technologies2}
  - ${technologies3}
  <hr>
+
  ## Contributing
- ${contributing}
+ - ${contributing}
  <hr>
+ 
  ## Tests
  ${tests}
  <hr>
+
  ## Questions
  If you have questions, comments, or concerns please reach me at https://github.com/${questions}
+ or
+ ${email}
 <hr>
+
  ## License
  **License:** ${license}
  <br>Copyright 2022 ${questions}<br>
@@ -80,4 +91,4 @@ const turd = ({ title, description, license, installation, usage, technologies1,
 `;
 
 
-module.exports = turd;
+module.exports = renderReadMe;
